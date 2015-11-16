@@ -99,8 +99,9 @@ namespace GRA.SRP {
 
                 new PatronSession(Session).Establish(user);
 
-                Session["PatronMessage"] = "Your password has been reset!";
-                Response.Redirect("~/MyProgram.aspx");
+                Session[SessionKey.PatronMessageGlyphicon] = "ok";
+                Session[SessionKey.PatronMessage] = "Your password has been reset!";
+                Response.Redirect("~/Dashboard.aspx");
             }
         }
     }

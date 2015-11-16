@@ -10,6 +10,7 @@ using GRA.SRP.ControlRoom;
 using GRA.SRP.Core.Utilities;
 using GRA.SRP.DAL;
 using GRA.SRP.Utilities.CoreClasses;
+using GRA.Tools;
 
 namespace GRA.SRP.Controls
 {
@@ -796,9 +797,14 @@ namespace GRA.SRP.Controls
 
                     var sBadges = "";
                     sBadges = list.Aggregate(sBadges, (current, b) => current + "|" + b.BID.ToString());
-                    if (p.IsMasterAccount && sBadges.Length > 0) GoToUrl = ("~/BadgeAward.aspx?b=" + sBadges);  // if family account and is master, and has badges, rememebr to show them
-                    if (!p.IsMasterAccount && p.MasterAcctPID == 0 && sBadges.Length > 0) GoToUrl = ("~/BadgeAward.aspx?b=" + sBadges); // if not family master or not family at all and badges, rememebr to show ...
-
+                    if(p.IsMasterAccount && sBadges.Length > 0) {
+                        // if family account and is master, and has badges, rememebr to show them
+                        Session[SessionKey.EarnedBadges] = sBadges;
+                    } 
+                    if(!p.IsMasterAccount && p.MasterAcctPID == 0 && sBadges.Length > 0) {
+                        // if not family master or not family at all and badges, rememebr to show ...
+                        Session[SessionKey.EarnedBadges] = sBadges;
+                    }
 
                     if (registeringMasterAccount)
                     {
@@ -809,7 +815,7 @@ namespace GRA.SRP.Controls
                         Session["PatronProgramID"] = p.ProgID;
                         Session["CurrentProgramID"] = p.ProgID;
                         Session["TenantID"] = p.TenID;
-                        Session["IsMasterAcct"] = p.IsMasterAccount;
+                        Session[SessionKey.IsMasterAccount] = p.IsMasterAccount;
                         if (p.IsMasterAccount)
                         {
                             Session["MasterAcctPID"] = p.PID;
@@ -931,7 +937,7 @@ namespace GRA.SRP.Controls
             {
                 if (ViewState["gotourl"] == null || ViewState["gotourl"].ToString().Length == 0)
                 {
-                    ViewState["gotourl"] = "~/MyProgram.aspx";
+                    ViewState["gotourl"] = "~/Dashboard.aspx";
                 }
                 return ViewState["gotourl"].ToString();
             }

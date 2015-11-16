@@ -1402,7 +1402,8 @@ DROP TABLE #temp
 SELECT ROW_NUMBER() OVER (
 		ORDER BY bl.BLID
 		) AS Rank,
-	bl.*
+	bl.*,
+	(select count(*) from [PatronBookLists] pbl WHERE pbl.[blid] = bl.[blid] AND pbl.[HasReadFlag] = 1) as NumBooksCompleted
 FROM #temp1 t
 LEFT JOIN dbo.BookList bl ON bl.BLID = t.BLID
 GO
@@ -7354,9 +7355,9 @@ SELECT ROW_NUMBER() OVER (
 FROM [PatronBadges] pb
 LEFT JOIN Badge b ON pb.BadgeID = b.BID
 WHERE PID = @PID
-ORDER BY DateEarned,
-	PBID
+ORDER BY Rank DESC
 GO
+
 /****** Object:  StoredProcedure [dbo].[app_PatronBadges_GetByID]    Script Date: 9/4/2015 13:46:40 ******/
 SET ANSI_NULLS ON
 GO
@@ -10221,7 +10222,6 @@ BEGIN
 	WHERE MaxAge >= @Age
 	ORDER BY MaxAge ASC,
 		POrder ASC
-		--select @ID
 END
 ELSE IF (
 		@Grade > 0
@@ -10233,7 +10233,6 @@ BEGIN
 	WHERE MaxGrade >= @Grade
 	ORDER BY MaxGrade ASC,
 		POrder ASC
-		--select @ID
 END
 ELSE
 BEGIN
@@ -10242,8 +10241,6 @@ BEGIN
 	WHERE IsActive = 1
 		AND IsHidden = 0
 	ORDER BY POrder ASC
-
-	--SELECT @ID
 END
 
 IF (@ID IS NULL)
@@ -10253,15 +10250,7 @@ IF (@ID IS NULL)
 		AND IsHidden = 0
 	ORDER BY POrder ASC
 
---select @ID
---SELECT @ID
-
-SELECT *
-FROM #temp
-ORDER BY MaxAge ASC,
-	POrder ASC
-
-RETURN 0
+select @ID
 GO
 /****** Object:  StoredProcedure [dbo].[app_Programs_GetDefaultProgramID]    Script Date: 9/4/2015 13:46:40 ******/
 SET ANSI_NULLS ON

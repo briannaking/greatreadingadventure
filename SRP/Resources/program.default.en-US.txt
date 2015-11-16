@@ -1,19 +1,11 @@
 ﻿;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Header Text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-About_Us_hidden_header=About Us
-About_Us_Short_Text=<a href="http://www.greatreadingadventure.com/" target="_blank">The Great Reading Adventure</a> is a robust, open-source software designed to manage library reading programs.
-Contact_Us_hidden_header=Contact Us
-Contact_Us_hidden_header_Phone= (602) 652-3000
-Contact_Us_hidden_header_Email= <a href="mailto:info@greatreadingadventure.com">info@greatreadingadventure.com</a>
-Contact_Us_hidden_header_Address= 2700 N. Central Ave, Ste 700, Phoenix, AZ 85004
-Info_hidden_header=More Information
-Info_hidden_header_Short_Text=Run a reading program for any-size library district with literacy testing, digital badges, and comprehensive reporting using this free software package. <a href="http://www.greatreadingadventure.com/" target="_blank">See the Web site</a> for more details.
-System_Name=Great Reading Adventure 
-Slogan=Reimagining Summer Reading
-Upsell=All of what you are seeing can be easily customized to match your library!
-Back To Top=Back To Top
-Copyright_Statement=<a href="http://www.greatreadingadventure.com/" target="_blank">The Great Reading Adventure</a> was developed by the <a href="http://www.mcldaz.org/" target="_blank">Maricopa County Library District</a> with support by the <a href="http://www.azlibrary.gov/" target="_blank">Arizona State Library, Archives and Public Records</a>, a division of the Secretary of State, with federal funds from the <a href="http://www.imls.gov/" target="_blank">Institute of Museum and Library Services</a>.
+system-name=Great Reading Adventure 
+slogan=Reimagining Summer Reading
+upsell=All of what you are seeing can be easily customized to match your library!
+footer-copyright=<a href="http://www.greatreadingadventure.com/" target="_blank">The Great Reading Adventure</a> was developed by the <a href="http://www.mcldaz.org/" target="_blank">Maricopa County Library District</a> with support by the <a href="http://www.azlibrary.gov/" target="_blank">Arizona State Library, Archives and Public Records</a>, a division of the Secretary of State, with federal funds from the <a href="http://www.imls.gov/" target="_blank">Institute of Museum and Library Services</a>.
+tenant-selection=Choose your library:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Global text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -27,15 +19,13 @@ Button=Press Me!
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Login form text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-LoginForm Title=Login
-LoginForm no account=  
-LoginForm register=Register
-LoginForm forgot pass=
-LoginForm recover=Lost password
-LoginForm username=Username:
-LoginForm password=Password:
-LoginForm terms=I accept the terms and conditions
-LoginForm button=Login
+loginform-title=Login
+loginform-register=Register
+loginform-recover=Lost password
+loginform-username=Username:
+loginform-password=Password:
+loginform-submit-button=Login
+loginform-remember-me=Remember my username
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Recover form text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -77,10 +67,9 @@ FamAccts Impersonate Cancel=Cancel
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Account Screen
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-MyAccount Title=My Account Setup
-FamilyAccount Title=Family Account Setup
-MyAccount SaveBtn=Submit
-MyAccount CancelBtn=Cancel
+MyAccount Title=My Account Settings
+FamilyAccount Title=Family Account Settings
+MyAccount SaveBtn=Save
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Registration Screen
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -152,44 +141,65 @@ Minigame Instructions ReachedtheEnd=You have reached the end of your adventure.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Offers text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Offers Title=Promotional Offers
-Offers btn Print=Print
-Offers btn Back=Go Back
-Offers Serial=Serial #
+offers-title=Offers
+offers-back=Back
+offers-serial=Offer Serial #
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Events text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Events Title=Upcoming Events
-Events btn Filter=Filter
-Events btn Clear=Clear
-Events Label When=When: 
-Events Label What=What: 
-Events Label Where=Where: 
-Events Btn Details=More Details ... 
-Events btn Print=Print
-Events btn Back=Go Back
+events-title=Events
+events-header-when=When
+events-header-where=Where
+events-header-what=What
+events-header-summary=Summary
+events-filter-button=Filter
+events-filter-clear-button=Clear
+events-prompt=Event: 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Notifications text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Notifications Title=Notifications
-Ask A Question=Ask A Question
-Notifications btn Print=Print
-Notifications Ask Question Title=Ask Question
-Submit Question=Submit Question
-Notifications Ask Question Submitted Done=We have received your question and will get back to you soon.
+notifications-title=Mail
+notifications-from=The Great Reading Adventure Team
+notifications-send-message=Send a mail message
+notifications-message-sent=Your message has been sent!
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Reading Lists text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Reading Lists Title=Book Lists Recommended By Our Librarians
-Reading Lists Instructions=Our librarians have put together several reading lists, for a variety of reading interests and levels.  Select the list name to see the books on the list, and then let us know which of the books you have read.  Complete the reading list and you might just earn a prize, cool badges and even reading points!
-Reading Lists No Lists=No reading lists are available at this time.
-Reading Lists btn Print=Print
-Reading Lists btn Save=Save
+challenges-title=Challenges
+challenges-instructions=Complete Challenges to earn points and win badges!
+challenges-no-challenges=There are currently no Challenges. Check back soon!
+challenges-prompt=Challenge: 
+challenges-close=Close
+challenges-save=Save
+challenges-return=Back to list
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Logging Form text
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 LoggingForm Title=Family Account Activity Logging
-Activity History Title=Activity History
-Activity History btn Filter=Filter
+activity-history-title=Activity History
+activity-history-other-family=View another family member:
 Play Now=Play Now <br /><small>Go to the game map</small>
 Reading Log=Play Now:<br /><small>Log my reading, enter a secret code, and play mini-games</small>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Badges
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+badges-my-badges=My Badges
+badges-gallery=Badge Gallery
+badges-none-earned=You have not earned any badges yet.
+badges-none-available=No badges found. Check back soon!
+badges-filter-button=Filter
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Reading log
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+readinglog-reading-log=Reading log
+readinglog-reading-prompt=I read
+readinglog-submit=Submit
+readinglog-read-a-book=I read a book!
+readinglog-details-header=Enter book details
+readinglog-details-cancel=Cancel
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Code entry
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+secret-code-header=Secret code
+secret-code-prompt=Code:
+secret-code-submit=Submit

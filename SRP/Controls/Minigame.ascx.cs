@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GRA.SRP.DAL;
+using GRA.Tools;
 
 namespace GRA.SRP.Controls
 {
@@ -17,7 +18,7 @@ namespace GRA.SRP.Controls
             {
                 if (string.IsNullOrEmpty(Request["MGID"]) && (Session["MGID"] == null || Session["MGID"].ToString() == ""))
                 {
-                    Response.Redirect("~/MyAccount.aspx");
+                    Response.Redirect("~/Account/");
                 }
                 if (!string.IsNullOrEmpty(Request["MGID"]))
                 {
@@ -75,7 +76,7 @@ namespace GRA.SRP.Controls
             // Turn Off AJAX so we can use the JQuery for game boad manipulation on Hidden Picture AND Matching Game
             if (string.IsNullOrEmpty(Request["MGID"]) && (Session["MGID"] == null || Session["MGID"].ToString() == ""))
             {
-                Response.Redirect("~/MyAccount.aspx");
+                Response.Redirect("~/Account/");
             }
             if (!string.IsNullOrEmpty(Request["MGID"]))
             {
@@ -372,7 +373,9 @@ namespace GRA.SRP.Controls
             var mg = DAL.Minigame.FetchObject(int.Parse(MGID.Text));
             var pa = new AwardPoints(int.Parse(PID.Text));
             var sBadges = pa.AwardPointsToPatron(mg.NumberPoints, PointAwardReason.MiniGameCompletion, mg.MGID);
-            if (sBadges.Length > 0) Response.Redirect("~/BadgeAward.aspx?b=" + sBadges);
+            if (sBadges.Length > 0) {
+                Session[SessionKey.EarnedBadges] = sBadges;
+            }
             
 
             //var mg = DAL.Minigame.FetchObject(int.Parse(MGID.Text));
@@ -595,7 +598,7 @@ namespace GRA.SRP.Controls
             {
                 if (ViewState["gotourl"] == null || ViewState["gotourl"].ToString().Length == 0)
                 {
-                    ViewState["gotourl"] = "~/MyLogEntry.aspx";
+                    ViewState["gotourl"] = "~/Adventures/";
                 }
                 return ViewState["gotourl"].ToString();
             }

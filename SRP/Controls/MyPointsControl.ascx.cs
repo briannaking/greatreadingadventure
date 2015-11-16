@@ -23,6 +23,7 @@ namespace GRA.SRP.Controls
         {
             
             var patron = (Patron)Session["Patron"];
+            Session["ActHistPID"] = patron.PID;
 
             int tp = PatronPoints.GetTotalPatronPoints(patron.PID);
             lblPoints.Text = tp.ToInt();
@@ -45,8 +46,8 @@ namespace GRA.SRP.Controls
 
             lblNextLevel.Text =
                 string.Format(
-                    ",{0} level {1}.<br>Only {2} more points to get to the next level!",
-                    (bonus ? "bonus" : ""), level, points);
+                    "I'm on {0}level {1}, {2} points to level up!",
+                    (bonus ? "bonus " : ""), level, points);
 
 
         }

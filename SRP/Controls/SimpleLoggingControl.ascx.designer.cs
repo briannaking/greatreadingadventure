@@ -13,22 +13,13 @@ namespace GRA.SRP.Controls {
     public partial class SimpleLoggingControl {
         
         /// <summary>
-        /// lblMessage control.
+        /// simpleLoggingControlPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-        
-        /// <summary>
-        /// EntryTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable EntryTable;
+        protected global::System.Web.UI.WebControls.Panel simpleLoggingControlPanel;
         
         /// <summary>
         /// txtCountSubmitted control.
@@ -47,15 +38,6 @@ namespace GRA.SRP.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbActivityType;
-        
-        /// <summary>
-        /// pnlTitleAndAuthor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlTitleAndAuthor;
         
         /// <summary>
         /// txtTitle control.
@@ -112,15 +94,6 @@ namespace GRA.SRP.Controls {
         protected global::System.Web.UI.WebControls.TextBox txtProgramCode;
         
         /// <summary>
-        /// lblFB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFB;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
@@ -128,24 +101,6 @@ namespace GRA.SRP.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// btnReSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReSubmit;
-        
-        /// <summary>
-        /// btnHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHistory;
         
         /// <summary>
         /// lblPID control.

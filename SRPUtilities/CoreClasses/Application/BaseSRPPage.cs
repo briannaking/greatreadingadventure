@@ -8,12 +8,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GRA.SRP.Core.Utilities;
 using GRA.SRP.Utilities.CoreClasses;
+using GRA.Tools;
 
 namespace SRPApp.Classes {
     public class BaseSRPPage : System.Web.UI.Page {
         public BaseSRPPage() {
             PreInit += basePagePreInit;
-
         }
 
         #region Properties
@@ -23,8 +23,12 @@ namespace SRPApp.Classes {
             get { return _isSecure; }
             set {
                 _isSecure = value;
-                if(IsSecure && !IsLoggedIn)
-                    Response.Redirect("~/Login.aspx");
+                if(IsSecure && !IsLoggedIn) {
+                    if(Session[SessionKey.RequestedPath] == null) {
+                        Session[SessionKey.RequestedPath] = Request.Path;
+                    }
+                    Response.Redirect("~");
+                }
             }
         }
 
@@ -93,7 +97,26 @@ namespace SRPApp.Classes {
                         }
                         // else go to tenant selection page ..
                         if(tenID < 0) {
-                            Response.Redirect("~/Select.aspx", true);
+                            // we don't have a tenant, let's see what's going on
+                            var ds = Tenant.GetAllActive();
+                            if(ds.Tables.Count == 1) {
+                                // table tenant fetched
+                                if(ds.Tables[0].Rows.Count == 0) {
+                                    // no tenants in the tenant table, we'll assume master
+                                    tenID = Tenant.GetMasterID();
+                                } else if(ds.Tables[0].Rows.Count == 1) {
+                                    // one tenant in the tenant talbe, we'll assume it
+                                    var row = ds.Tables[0].Rows[0];
+                                    var potentalTenant = row["TenId"] as int?;
+                                    if(potentalTenant != null) {
+                                        tenID = (int)potentalTenant;
+                                    }
+                                }
+
+                            }
+                            if(tenID < 0) {
+                                Response.Redirect("~/Select.aspx", true);
+                            }
                         }
                         Session["TenantID"] = tenID;
                     }
@@ -112,9 +135,12 @@ namespace SRPApp.Classes {
                 // PatronID =  patron.PK
                 // ProgramID = patron.programid
             }
-            if(IsSecure && !IsLoggedIn)
-                Response.Redirect("~/Login.aspx");
-
+            if(IsSecure && !IsLoggedIn) {
+                if(Session[SessionKey.RequestedPath] == null) {
+                    Session[SessionKey.RequestedPath] = Request.Path;
+                }
+                Response.Redirect("~");
+            }
 
             base.OnPreLoad(e);
         }
@@ -152,11 +178,11 @@ namespace SRPApp.Classes {
             LoadDropDownListLists(ctl);
             LoadButtons(ctl);
             if(string.IsNullOrEmpty(Page.Title) || Page.Title == "Home Page") {
-                string systemName = GetResourceString("System_Name");
-                if(systemName != "System_Name") {
+                string systemName = GetResourceString("system-name");
+                if(systemName != "system-name") {
                     string title = systemName;
-                    string slogan = GetResourceString("Slogan");
-                    if(slogan != "Slogan") {
+                    string slogan = GetResourceString("slogan");
+                    if(slogan != "slogan") {
                         title = string.Format("{0} - {1}",
                                               title,
                                               slogan);
@@ -278,8 +304,6 @@ namespace SRPApp.Classes {
             } catch //(Exception ex)
               {
             }
-            if("y".Equals(Request.QueryString["print"]))
-                MasterPageFile = "~/master/Print.master";
         }
 
         public string GetResourceString(string resName) {

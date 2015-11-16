@@ -1,36 +1,32 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MyBadgesListControl.ascx.cs" Inherits="GRA.SRP.Controls.MyBadgesListControl" %>
 
-
-<div class="pill">
-    <h4>My Badges</h4><hr />
-    <!--<small>These are the badges you have earned! <a href="/MyBadges.aspx">Click here for more details! </a></small>-->
-    <small>See <a href="/MyBadges.aspx">my badges </a></small><br />
-    <small>Discover <a href="/BadgeGallery.aspx">more badges </a></small>
-
-    <hr />
-    <div style="font-size: smaller; max-height: 350px; overflow:auto; overflow-x: hidden; -ms-overflow-x: hidden; white-space: nowrap; border: 1px solid silver;">
-    <table width="100%" style="font-size: smaller; max-height: 500px; overflow:scroll;" >
-
-           <asp:Repeater runat="server" ID="rptr" >
-                <ItemTemplate>
-            
-            <%# (((long)Eval("Rank")) % 2 != 0 ? "<tr>" : "") %>
-            
-                <td align="center" valign="top" style="padding:10px 10px 10px 10px;">
-                    
-                    <img src='/images/badges/sm_<%# Eval("BadgeID") %>.png' />
-
-                </td>
-            
-            <%# (((long)Eval("Rank")) % 2 == 0 ? "</tr>" : "") %>                
-                                
-                </ItemTemplate>
-                
-            </asp:Repeater>
-        <asp:Label ID="NoBadges" runat="server" Text="You have not earned any badges yet." Visible="false"></asp:Label>
-
-
-                                                                                                                               
-    </table>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <span class="lead">
+            <asp:HyperLink runat="server" NavigateUrl="~/Badges/MyBadges.aspx"><asp:Label runat="server" Text="badges-my-badges"></asp:Label></asp:HyperLink></span>
+        <hr style="margin-bottom: 5px !important; margin-top: 5px !important;" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <asp:Label ID="NoBadges" runat="server" Text="badges-none-earned" Visible="false" CssClass="margin-1em-bottom"></asp:Label>
+    </div>
+    <asp:Repeater runat="server" ID="rptr">
+        <ItemTemplate>
+            <div class="<%=this.BadgeClass %> text-center"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="<%# "You earned the " + Eval("Title") + " badge on " + ((DateTime)Eval("DateEarned")).ToShortDateString() %>">
+                <a href='<%# Eval("BadgeId", "~/Badges/Details.aspx?BadgeId={0}") %>'
+                    runat="server"
+                    OnClick='<%# Eval("BadgeId", "return HideTooltipShowBadgeInfo(this.parentElement, {0});") %>'
+                    class="thumbnail">
+                <asp:Image runat="server" ImageUrl='<%# Eval("BadgeId", "~/images/badges/sm_{0}.png")%>' />
+                </a>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <div class="col-xs-12 text-center">
+        <asp:HyperLink runat="server" NavigateUrl="~/Badges/"><em>Explore more badges...</em></asp:HyperLink>
     </div>
 </div>
